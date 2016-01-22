@@ -29,12 +29,12 @@ func main(){
 
 	ic := make(chan int, 1)
 
-	GOMAXPROCS(NumCPU())
+	runtime.GOMAXPROCS(runtime.NumCPU())
 	go add(ic)
 	go sub(ic)
 
-	Sleep(1000*Millisecond)
-	Println("The sum is:", i)
+	time.Sleep(1000*time.Millisecond)
+	fmt.Println("The sum is:", i)
 }
 
 
